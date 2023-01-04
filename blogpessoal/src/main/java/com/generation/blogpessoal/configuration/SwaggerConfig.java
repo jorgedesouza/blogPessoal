@@ -12,25 +12,15 @@ import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 
-/**
- * A Anotação (Annotation) @Configuration indica que a classe é uma fonte
- * de configuração e definição de Beans.
- * 
- */
+
 @Configuration
 public class SwaggerConfig {
 
-    /**
-     * A Anotação @Bean indica que o método é um bean, ou seja, um objeto que pode ser
-     * injetado em qualquer ponto da sua aplicação.
-     */
+    
 	@Bean
 	public OpenAPI springBlogPessoalOpenAPI() {
 		
-        /** Cria um Objeto da Classe OpenAPI, que gera a documentação no Swagger utilizando 
-         * a especificação OpenAPI.
-         * 
-         */
+        
         return new OpenAPI()
 				.info(new Info()
 					.title("Projeto Blog Pessoal")
@@ -48,12 +38,7 @@ public class SwaggerConfig {
 					.url("https://github.com/conteudoGeneration/"));
 	}
 
-    /**
-     * A Classe OpenApiCustomiser permite personalizar o Swagger, baseado na 
-     * Especificação OpenAPI. O Método abaixo, personaliza todas as mensagens 
-     * HTTP Responses (Respostas das requisições) do Swagger.
-     */
-	@Bean
+    @Bean
 	public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 
 		return openApi -> {
@@ -73,9 +58,7 @@ public class SwaggerConfig {
 		};
 	}
 
-    /**
-     * O Método createApiResponse() adiciona uma descrição (Mensagem), em cada Resposta HTTP.
-     */
+    
 	private ApiResponse createApiResponse(String message) {
 
 		return new ApiResponse().description(message);
